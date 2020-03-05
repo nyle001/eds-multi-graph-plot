@@ -80,7 +80,8 @@ for a in range(0,3):
 # # Customize the minor grid
 # axs.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
 
-fig.tight_layout(pad = 0.05)
+#fig.tight_layout(pad = 0.05)
+plt.subplots_adjust(left=0.125, bottom=0.09, right=0.9, top=0.9, wspace=0.15, hspace=0.31)
 plt.show()
 
 
