@@ -20,33 +20,33 @@ f_30min_base_8_arr = f_30min_base_8.values
 
 fig, axs = plt.subplots(3,3)
 
-axs[0,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,1],'-ok',markersize=3,color = 'green')
+axs[0,0].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,1],'-ok',markersize=3,color = 'green')
 axs[0,0].set_title('Carbon wt.%')
 plt.grid()
-axs[0,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,2],'-ok',markersize=3,color ='purple')
+axs[0,1].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,2],'-ok',markersize=3,color ='purple')
 axs[0,1].set_title('Oxygen wt.%')
 plt.grid()
-axs[0,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,3],'-ok',markersize=3,color ='brown')
+axs[0,2].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,3],'-ok',markersize=3,color ='brown')
 axs[0,2].set_title('Aluminum wt.%')
 plt.grid()
-axs[1,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,4],'-ok',markersize=3,color ='cyan')
+axs[1,0].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,4],'-ok',markersize=3,color ='cyan')
 axs[1,0].set_title('Silicon wt.%')
 plt.grid()
-axs[1,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,5],'-ok',markersize=3,color ='olive')
+axs[1,1].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,5],'-ok',markersize=3,color ='olive')
 axs[1,1].set_title('Chromium wt.%')
 plt.grid()
-axs[1,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,6],'-ok',markersize=3,color ='orange')
+axs[1,2].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,6],'-ok',markersize=3,color ='orange')
 axs[1,2].set_title('Manganese wt.%')
 plt.grid()
-axs[2,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,7],'-ok',markersize=3,color ='red')
+axs[2,0].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,7],'-ok',markersize=3,color ='red')
 axs[2,0].set_title('Iron wt.%')
 plt.grid()
-axs[2,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,8],'-ok',markersize=3,color ='blue')
+axs[2,1].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,8],'-ok',markersize=3,color ='blue')
 axs[2,1].set_title('Nickel wt.%')
 plt.grid()
-axs[2,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,9],'-ok',markersize=3,color ='gray')
+axs[2,2].plot(f_30min_base_8_arr[:,0],f_30min_base_8_arr[:,9],'-ok',markersize=3,color ='gray')
 axs[2,2].set_title('Molybdenum wt.%')
-plt.grid()
+
 
 for ax in axs.flat:
     ax.set(xlabel='micron')
@@ -67,6 +67,7 @@ for a in range(0,3):
     for b in range(0,3):
         axs[a,b].xaxis.set_major_locator(xticks)
         axs[a,b].locator_params(axis='y', nbins=6)
+        axs[a,b].grid()
         #axs[a,b].set_xlim(np.amin(f_30min_base_6_arr[:,0]), np.amax(f_30min_base_6_arr[:,0]))
         #axs[a,b].set_ylim(np.amin(f_30min_base_6_arr[:,0]), np.amax(f_30min_base_6_arr[:,0]))
 
@@ -82,6 +83,10 @@ for a in range(0,3):
 
 #fig.tight_layout(pad = 0.05)
 plt.subplots_adjust(left=0.125, bottom=0.09, right=0.9, top=0.9, wspace=0.15, hspace=0.31)
+fig = plt.gcf()
+fig.set_size_inches(18.5, 10.5)
+#plt.subplots(figsize=(15,15))
+fig.savefig('0.5f_base8.svg', format='svg', dpi=1200)
 plt.show()
 
 
