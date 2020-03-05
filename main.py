@@ -1,0 +1,70 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+from matplotlib import ticker
+
+
+# f_30mn = pd.ExcelFile('0.5f.xlsx') #opening an excel file by name nb: we can mention path here too
+# base_6 = f_30mn.parse('base6-700-front-30min-1') #Copies data from excel sheet of a specific excel file 
+
+# print(base_6.head()) #Shows first 5 entries of the data frame
+
+f_30min_base_6 = pd.read_excel('0.5f.xlsx',0)
+f_30min_base_7 = pd.read_excel('0.5f.xlsx',1)
+f_30min_base_8 = pd.read_excel('0.5f.xlsx',2)
+
+f_30min_base_6_arr = f_30min_base_6.values
+f_30min_base_7_arr = f_30min_base_7.values
+f_30min_base_8_arr = f_30min_base_8.values
+
+fig, axs = plt.subplots(3,3)
+
+axs[0,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,1],'-ok',markersize=3,color = 'green')
+axs[0,0].set_title('Carbon wt.%')
+axs[0,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,2],'-ok',markersize=3,color ='purple')
+axs[0,1].set_title('Oxygen wt.%')
+axs[0,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,3],'-ok',markersize=3,color ='brown')
+axs[0,2].set_title('Aluminum wt.%')
+axs[1,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,4],'-ok',markersize=3,color ='cyan')
+axs[1,0].set_title('Silicon wt.%')
+axs[1,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,5],'-ok',markersize=3,color ='olive')
+axs[1,1].set_title('Chromium wt.%')
+axs[1,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,6],'-ok',markersize=3,color ='orange')
+axs[1,2].set_title('Manganese wt.%')
+axs[2,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,7],'-ok',markersize=3,color ='red')
+axs[2,0].set_title('Iron wt.%')
+axs[2,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,8],'-ok',markersize=3,color ='blue')
+axs[2,1].set_title('Nickel wt.%')
+axs[2,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,9],'-ok',markersize=3,color ='gray')
+axs[2,2].set_title('Molybdenum wt.%')
+
+for ax in axs.flat:
+    ax.set(xlabel='micron')
+
+# Hide x labels and tick labels for top plots and y ticks for right plots.
+# for ax in axs.flat:
+#     ax.label_outer()
+
+# Create your ticker object with M ticks
+M = 12
+N = 5
+xticks = ticker.MaxNLocator(M)
+yticks = ticker.MaxNLocator(N)
+
+# Set the yaxis major locator using your ticker object. You can also choose the minor
+# tick positions with set_minor_locator.
+for a in range(0,3):
+    for b in range(0,3):
+        axs[a,b].xaxis.set_major_locator(xticks)
+        axs[a,b].locator_params(axis='y', nbins=6)
+        #axs[a,b].set_xlim(np.amin(f_30min_base_6_arr[:,0]), np.amax(f_30min_base_6_arr[:,0]))
+        #axs[a,b].set_ylim(np.amin(f_30min_base_6_arr[:,0]), np.amax(f_30min_base_6_arr[:,0]))
+
+        #axs[a,b].yaxis.set_major_locator(yticks)
+
+
+fig.tight_layout()
+plt.show()
+
+
