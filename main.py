@@ -22,22 +22,31 @@ fig, axs = plt.subplots(3,3)
 
 axs[0,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,1],'-ok',markersize=3,color = 'green')
 axs[0,0].set_title('Carbon wt.%')
+plt.grid()
 axs[0,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,2],'-ok',markersize=3,color ='purple')
 axs[0,1].set_title('Oxygen wt.%')
+plt.grid()
 axs[0,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,3],'-ok',markersize=3,color ='brown')
 axs[0,2].set_title('Aluminum wt.%')
+plt.grid()
 axs[1,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,4],'-ok',markersize=3,color ='cyan')
 axs[1,0].set_title('Silicon wt.%')
+plt.grid()
 axs[1,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,5],'-ok',markersize=3,color ='olive')
 axs[1,1].set_title('Chromium wt.%')
+plt.grid()
 axs[1,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,6],'-ok',markersize=3,color ='orange')
 axs[1,2].set_title('Manganese wt.%')
+plt.grid()
 axs[2,0].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,7],'-ok',markersize=3,color ='red')
 axs[2,0].set_title('Iron wt.%')
+plt.grid()
 axs[2,1].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,8],'-ok',markersize=3,color ='blue')
 axs[2,1].set_title('Nickel wt.%')
+plt.grid()
 axs[2,2].plot(f_30min_base_6_arr[:,0],f_30min_base_6_arr[:,9],'-ok',markersize=3,color ='gray')
 axs[2,2].set_title('Molybdenum wt.%')
+plt.grid()
 
 for ax in axs.flat:
     ax.set(xlabel='micron')
@@ -63,8 +72,15 @@ for a in range(0,3):
 
         #axs[a,b].yaxis.set_major_locator(yticks)
 
+# # Turn on the minor TICKS, which are required for the minor GRID
+# axs.minorticks_on()
 
-fig.tight_layout()
+# # Customize the major grid
+# axs.grid(which='major', linestyle='-', linewidth='0.5', color='red')
+# # Customize the minor grid
+# axs.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
+
+fig.tight_layout(pad = 0.05)
 plt.show()
 
 
