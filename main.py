@@ -10,9 +10,9 @@ from matplotlib import ticker
 
 # print(base_6.head()) #Shows first 5 entries of the data frame
 
-f_30min_base_6 = pd.read_excel('0.5f.xlsx',0)
-f_30min_base_7 = pd.read_excel('0.5f.xlsx',1)
-f_30min_base_8 = pd.read_excel('0.5f.xlsx',2)
+f_30min_base_6 = pd.read_excel('1.0f.xlsx',0)
+f_30min_base_7 = pd.read_excel('1.0f.xlsx',1)
+f_30min_base_8 = pd.read_excel('1.0f.xlsx',2)
 
 f_30min_base_6_arr = f_30min_base_6.values
 f_30min_base_7_arr = f_30min_base_7.values
@@ -86,7 +86,7 @@ plt.subplots_adjust(left=0.125, bottom=0.09, right=0.9, top=0.9, wspace=0.15, hs
 fig = plt.gcf()
 fig.set_size_inches(18.5, 10.5)
 #plt.subplots(figsize=(15,15))
-fig.savefig('0.5f_base8.svg', format='svg', dpi=1200)
+fig.savefig('1.0f_base12_3.svg', format='svg', dpi=1200)
 plt.show()
 
 
